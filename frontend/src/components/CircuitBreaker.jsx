@@ -80,7 +80,7 @@ export default function CircuitBreaker({ state, error }) {
               <span>CLOSED</span>
             </div>
             <div className={`circuit-breaker__arrow ${state === 'OPEN' ? 'circuit-breaker__arrow--active' : ''}`}>
-              <svg width="40" height="14" viewBox="0 0 40 14">
+              <svg width="24" height="14" viewBox="0 0 40 14" preserveAspectRatio="xMidYMid meet">
                 <path d="M0 7 L30 7 M25 2 L32 7 L25 12" fill="none" stroke="currentColor" strokeWidth="1.5"/>
               </svg>
               <span className="circuit-breaker__arrow-label">{`≥3 fallos`}</span>
@@ -90,7 +90,7 @@ export default function CircuitBreaker({ state, error }) {
               <span>OPEN</span>
             </div>
             <div className={`circuit-breaker__arrow ${state === 'HALF_OPEN' ? 'circuit-breaker__arrow--active' : ''}`}>
-              <svg width="40" height="14" viewBox="0 0 40 14">
+              <svg width="24" height="14" viewBox="0 0 40 14" preserveAspectRatio="xMidYMid meet">
                 <path d="M0 7 L30 7 M25 2 L32 7 L25 12" fill="none" stroke="currentColor" strokeWidth="1.5"/>
               </svg>
               <span className="circuit-breaker__arrow-label">10s timeout</span>

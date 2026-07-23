@@ -145,14 +145,15 @@
 /* ─── Main Grid ─── */
 .app__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
+  align-items: stretch;
 }
 
 .app__column {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-xl);
 }
 
 /* ─── Section Headers ─── */
@@ -222,7 +223,13 @@
 }
 
 /* ─── Responsive ─── */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
+  .app__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
   .app__grid {
     grid-template-columns: 1fr;
   }

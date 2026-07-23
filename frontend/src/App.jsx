@@ -146,11 +146,10 @@ function App() {
           </div>
         </section>
 
-        {/* Main Grid */}
+        {/* Main Grid: 3 Columns */}
         <div className="app__grid">
-          {/* Left Column */}
-          <div className="app__column app__column--left">
-            {/* Node Cards */}
+          {/* Column 1: Nodes & Circuit Breaker */}
+          <div className="app__column">
             <section className="app__section" id="nodes-section">
               <h2 className="app__section-title">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -181,22 +180,20 @@ function App() {
               </div>
             </section>
 
-            {/* Circuit Breaker */}
             <CircuitBreaker state={circuitState} error={errors.circuit} />
+          </div>
 
-            {/* Architecture Diagram */}
+          {/* Column 2: Architecture */}
+          <div className="app__column">
             <ArchitectureDiagram nodos={nodos} circuitState={circuitState} />
           </div>
 
-          {/* Right Column */}
-          <div className="app__column app__column--right">
-            {/* Test Panel */}
+          {/* Column 3: Test & Log */}
+          <div className="app__column">
             <TestPanel
               onSendRequest={sendTestRequest}
               requestHistory={requestHistory}
             />
-
-            {/* Circuit Log */}
             <CircuitLog log={circuitLog} error={errors.log} />
           </div>
         </div>
@@ -208,7 +205,7 @@ function App() {
           Práctica 15+16 — Heartbeat/Failover + Microservicios/Circuit Breaker
         </p>
         <p className="app__footer-tech">
-          React + Vite · Auto-refresh cada 2s · Python stdlib backend
+          Sistemas Distribuidos
         </p>
       </footer>
 

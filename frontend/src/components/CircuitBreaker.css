@@ -2,11 +2,10 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+  padding: var(--space-md) var(--space-sm);
   transition: all var(--transition-base);
   overflow: hidden;
   position: relative;
-  opacity: 0;
 }
 
 .circuit-breaker::before {
@@ -43,7 +42,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Prevent ugly wrapping */
 }
 
 .circuit-breaker__node {
@@ -60,7 +59,8 @@
   font-weight: 600;
   color: var(--text-muted);
   transition: all var(--transition-base);
-  min-width: 80px;
+  min-width: 60px; /* Reduced from 80px */
+  flex: 1;
 }
 
 .circuit-breaker__node--active {

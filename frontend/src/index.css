@@ -204,11 +204,11 @@ body {
 
 /* ─── Utility Classes ─── */
 .animate-fade-in-up {
-  animation: fadeInUp 0.5s ease-out forwards;
+  animation: fadeInUp 0.5s ease-out both;
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.4s ease-out forwards;
+  animation: fadeIn 0.4s ease-out both;
 }
 
 .stagger-1 { animation-delay: 0.05s; }
