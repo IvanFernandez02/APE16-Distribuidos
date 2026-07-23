@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 const DEFAULT_CONFIG = {
-  balanceadorUrl: 'http://127.0.0.1:8080',
-  orquestadorUrl: 'http://127.0.0.1:8081',
+  balanceadorUrl: 'http://192.168.1.13:8080',
+  orquestadorUrl: 'http://192.168.1.12:8081',
 };
 
 export function useSystemData(config = DEFAULT_CONFIG) {

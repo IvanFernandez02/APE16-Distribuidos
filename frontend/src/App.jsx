@@ -10,10 +10,10 @@ import TestPanel from './components/TestPanel';
 import ConfigModal from './components/ConfigModal';
 
 const DEFAULT_CONFIG = {
-  // IP de la Máquina 3 (Balanceador de carga, puerto 8080)
-  balanceadorUrl: 'http://127.0.0.1:8080',
-  // IP de la Máquina 2 (Orquestador de peticiones, puerto 8081)
-  orquestadorUrl: 'http://127.0.0.1:8081',
+  // IP de la Máquina 2 (Balanceador de carga, puerto 8080)
+  balanceadorUrl: 'http://192.168.1.13:8080',
+  // IP de la Máquina 3 (Orquestador de peticiones, puerto 8081)
+  orquestadorUrl: 'http://192.168.1.12:8081',
 };
 
 function loadConfig() {
