@@ -1,0 +1,25 @@
+# Java
+target/
+*.jar
+*.class
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+.npm/
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Base de datos (Balanceador)
+nodos.db
+
+# Logs
+*.log

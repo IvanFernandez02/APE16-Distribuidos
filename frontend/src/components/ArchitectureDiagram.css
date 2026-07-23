@@ -1,0 +1,278 @@
+.arch-diagram {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  opacity: 0;
+}
+
+.arch-diagram:hover {
+  border-color: var(--border-hover);
+}
+
+.arch-diagram__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xl);
+}
+
+.arch-diagram__title svg {
+  color: var(--color-info);
+}
+
+/* ─── Canvas ─── */
+.arch-diagram__canvas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.arch-diagram__layer {
+  display: flex;
+  justify-content: center;
+}
+
+/* ─── Boxes ─── */
+.arch-diagram__box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-glass);
+  transition: all var(--transition-base);
+  min-width: 120px;
+}
+
+.arch-diagram__box:hover {
+  background: var(--bg-glass-hover);
+  transform: translateY(-2px);
+}
+
+.arch-diagram__box-icon {
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.arch-diagram__box-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.arch-diagram__box-detail {
+  font-size: 0.62rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+/* Client box */
+.arch-diagram__box--client {
+  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.06);
+}
+.arch-diagram__box--client .arch-diagram__box-icon { color: #818cf8; }
+
+/* Orchestrator box */
+.arch-diagram__box--orquestador {
+  border-color: rgba(168, 85, 247, 0.3);
+  background: rgba(168, 85, 247, 0.06);
+}
+.arch-diagram__box--orquestador .arch-diagram__box-icon { color: #a78bfa; }
+
+.arch-diagram__box--orquestador.arch-diagram__box--closed {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+.arch-diagram__box--orquestador.arch-diagram__box--open {
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 0 20px var(--color-danger-glow);
+}
+.arch-diagram__box--orquestador.arch-diagram__box--half-open {
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 20px var(--color-warning-glow);
+}
+
+/* Balancer box */
+.arch-diagram__box--balanceador {
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(59, 130, 246, 0.06);
+}
+.arch-diagram__box--balanceador .arch-diagram__box-icon { color: #60a5fa; }
+
+/* Backend boxes */
+.arch-diagram__box--backend.arch-diagram__box--active {
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.06);
+}
+.arch-diagram__box--backend.arch-diagram__box--active .arch-diagram__box-icon {
+  color: var(--color-success);
+}
+
+.arch-diagram__box--backend.arch-diagram__box--inactive {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.06);
+  opacity: 0.7;
+}
+.arch-diagram__box--backend.arch-diagram__box--inactive .arch-diagram__box-icon {
+  color: var(--color-danger);
+}
+
+.arch-diagram__box--backend.arch-diagram__box--unknown {
+  border-color: rgba(107, 114, 128, 0.3);
+  background: rgba(107, 114, 128, 0.06);
+  opacity: 0.6;
+}
+
+/* Status dot on backends */
+.arch-diagram__status-dot {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--bg-card);
+}
+
+.arch-diagram__status-dot--active {
+  background: var(--color-success);
+  box-shadow: 0 0 6px var(--color-success-glow);
+}
+.arch-diagram__status-dot--inactive {
+  background: var(--color-danger);
+}
+.arch-diagram__status-dot--unknown {
+  background: var(--color-unknown);
+}
+
+/* Circuit badge */
+.arch-diagram__circuit-badge {
+  margin-top: 4px;
+  font-size: 0.58rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.03em;
+}
+
+.arch-diagram__circuit-badge--closed {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.arch-diagram__circuit-badge--open {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+.arch-diagram__circuit-badge--half-open {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+.arch-diagram__circuit-badge--unknown {
+  background: var(--color-unknown-bg);
+  color: var(--color-unknown);
+  border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+/* ─── Connectors ─── */
+.arch-diagram__connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.arch-diagram__connector--vertical {
+  height: 28px;
+  width: 3px;
+}
+
+.arch-diagram__connector-line {
+  width: 2px;
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.arch-diagram__connector-line--animated {
+  background: linear-gradient(to bottom, rgba(99, 102, 241, 0.5), rgba(168, 85, 247, 0.5));
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-diagram__connector-line--animated::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-full);
+  animation: flowDown 1.5s ease-in-out infinite;
+}
+
+@keyframes flowDown {
+  0% { top: -8px; opacity: 0; }
+  30% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.arch-diagram__connector-line--blocked {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px dashed rgba(239, 68, 68, 0.3);
+}
+
+.arch-diagram__connector-x {
+  position: absolute;
+  color: var(--color-danger);
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: var(--bg-card);
+  padding: 0 2px;
+  z-index: 1;
+}
+
+/* ─── Fork ─── */
+.arch-diagram__fork {
+  display: flex;
+  gap: var(--space-xl);
+  justify-content: center;
+  position: relative;
+}
+
+.arch-diagram__fork::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 120px);
+  height: 2px;
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.5), rgba(59, 130, 246, 0.3));
+}
+
+.arch-diagram__fork-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 500px) {
+  .arch-diagram__fork {
+    gap: var(--space-md);
+  }
+
+  .arch-diagram__box {
+    min-width: 100px;
+    padding: var(--space-sm) var(--space-md);
+  }
+}

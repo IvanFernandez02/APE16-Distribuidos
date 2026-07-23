@@ -1,0 +1,189 @@
+.circuit-log {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: all var(--transition-base);
+  opacity: 0;
+}
+
+.circuit-log:hover {
+  border-color: var(--border-hover);
+}
+
+.circuit-log__header {
+  margin-bottom: var(--space-lg);
+}
+
+.circuit-log__title-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.circuit-log__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.circuit-log__title svg {
+  color: var(--color-info);
+}
+
+.circuit-log__count {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  background: var(--bg-glass);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+}
+
+.circuit-log__error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--color-danger-bg);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--color-danger);
+  font-size: 0.75rem;
+  margin-bottom: var(--space-md);
+}
+
+.circuit-log__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-lg);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.circuit-log__empty svg {
+  margin-bottom: var(--space-md);
+  opacity: 0.3;
+}
+
+.circuit-log__empty p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.circuit-log__empty span {
+  font-size: 0.75rem;
+}
+
+/* ─── Timeline ─── */
+.circuit-log__timeline {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: var(--space-sm);
+}
+
+.circuit-log__entry {
+  display: flex;
+  gap: var(--space-md);
+  animation: floatUp 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.circuit-log__entry-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 28px;
+}
+
+.circuit-log__entry-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.circuit-log__entry-dot--success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 2px solid rgba(16, 185, 129, 0.3);
+}
+
+.circuit-log__entry-dot--danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+}
+
+.circuit-log__entry-dot--warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+  border: 2px solid rgba(245, 158, 11, 0.3);
+}
+
+.circuit-log__entry-dot--unknown {
+  background: var(--color-unknown-bg);
+  color: var(--color-unknown);
+  border: 2px solid rgba(107, 114, 128, 0.3);
+}
+
+.circuit-log__entry-line {
+  width: 2px;
+  flex: 1;
+  min-height: 12px;
+  background: var(--border-color);
+}
+
+.circuit-log__entry-content {
+  flex: 1;
+  padding-bottom: var(--space-md);
+}
+
+.circuit-log__entry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: 2px;
+}
+
+.circuit-log__entry-state {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.circuit-log__entry-state--success { color: var(--color-success); }
+.circuit-log__entry-state--danger { color: var(--color-danger); }
+.circuit-log__entry-state--warning { color: var(--color-warning); }
+.circuit-log__entry-state--unknown { color: var(--color-unknown); }
+
+.circuit-log__entry-time {
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.circuit-log__entry-detail {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}

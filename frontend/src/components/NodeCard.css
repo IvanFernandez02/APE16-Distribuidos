@@ -1,0 +1,190 @@
+.node-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--transition-base);
+  overflow: hidden;
+  opacity: 0;
+}
+
+.node-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  transition: all var(--transition-base);
+}
+
+.node-card--success::before {
+  background: var(--gradient-success);
+}
+
+.node-card--danger::before {
+  background: var(--gradient-danger);
+}
+
+.node-card--unknown::before {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+}
+
+.node-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.node-card--success:hover {
+  box-shadow: var(--shadow-lg), 0 0 30px var(--color-success-glow);
+}
+
+.node-card--danger:hover {
+  box-shadow: var(--shadow-lg), 0 0 30px var(--color-danger-glow);
+}
+
+.node-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.node-card__icon-wrap {
+  position: relative;
+}
+
+.node-card__status-ring {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.node-card__status-ring--success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.node-card__status-ring--danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+
+.node-card__status-ring--unknown {
+  background: var(--color-unknown-bg);
+  color: var(--color-unknown);
+}
+
+.node-card__pulse {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-success);
+  border: 2px solid var(--bg-card);
+}
+
+.node-card__pulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: var(--color-success);
+  animation: ripple 2s ease-out infinite;
+}
+
+.node-card__info {
+  flex: 1;
+}
+
+.node-card__name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.node-card__role {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.node-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.node-card__status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  width: fit-content;
+}
+
+.node-card__status-badge--success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.node-card__status-badge--danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.node-card__status-badge--unknown {
+  background: var(--color-unknown-bg);
+  color: var(--color-unknown);
+  border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+.node-card__status-icon {
+  font-size: 0.7rem;
+}
+
+.node-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border-color);
+}
+
+.node-card__meta-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.node-card__meta-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.node-card__meta-value {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.node-card__meta-value--mono {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
