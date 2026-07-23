@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(10, 14, 26, 0.85);
+  background: var(--bg-header);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-color);
@@ -146,6 +146,11 @@
 .header__btn--config:hover {
   color: var(--color-warning);
   border-color: rgba(245, 158, 11, 0.3);
+}
+
+.header__btn--theme:hover {
+  color: var(--color-info);
+  border-color: rgba(59, 130, 246, 0.3);
 }
 
 @media (max-width: 768px) {

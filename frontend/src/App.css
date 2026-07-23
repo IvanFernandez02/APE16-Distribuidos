@@ -205,7 +205,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-md);
-  background: rgba(10, 14, 26, 0.9);
+  background: var(--bg-overlay);
   backdrop-filter: blur(10px);
   z-index: 2000;
   animation: fadeIn 0.2s ease-out;

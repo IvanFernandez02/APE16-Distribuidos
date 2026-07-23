@@ -10,8 +10,10 @@ import TestPanel from './components/TestPanel';
 import ConfigModal from './components/ConfigModal';
 
 const DEFAULT_CONFIG = {
-  balanceadorUrl: 'http://192.168.1.103:8080',
-  orquestadorUrl: 'http://192.168.1.104:8081',
+  // IP de la Máquina 3 (Balanceador de carga, puerto 8080)
+  balanceadorUrl: 'http://127.0.0.1:8080',
+  // IP de la Máquina 2 (Orquestador de peticiones, puerto 8081)
+  orquestadorUrl: 'http://127.0.0.1:8081',
 };
 
 function loadConfig() {
@@ -26,6 +28,18 @@ function loadConfig() {
 function App() {
   const [config, setConfig] = useState(loadConfig);
   const [showConfig, setShowConfig] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('dsm-theme') || 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('dsm-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   const {
     nodos,
@@ -70,6 +84,8 @@ function App() {
         onRefresh={refresh}
         config={config}
         onConfigOpen={() => setShowConfig(true)}
+        theme={theme}
+        onThemeToggle={toggleTheme}
       />
 
       <main className="app__main">
